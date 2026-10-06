@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+paper/revised/*.aux
+paper/revised/*.log
+paper/revised/*.bbl
+paper/revised/*.blg
+paper/revised/*.out
+paper/revised/*.synctex.gz
+results/run.log
