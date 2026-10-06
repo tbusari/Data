@@ -46,7 +46,10 @@ for fn, label, ber in ROWS:
     nongenuine = r["delivered"] - r["payload_exact"]
     rejected = d.get("auth_fail", 0) + d.get("replay", 0)
     if r["profile"] == "A":
-        rej_cell = f"{rejected} (auth {d.get('auth_fail', 0)}, replay {d.get('replay', 0)})" if r["delivered"] else "all (no session)"
+        if r["delivered"]:
+            rej_cell = f"{rejected} (auth {d.get('auth_fail', 0)}, replay {d.get('replay', 0)})"
+        else:
+            rej_cell = "all (auth fail)" if d.get("auth_fail") else "all (no session)"
         major = "--"
     else:
         rej_cell = f"{rejected} (replay {d.get('replay', 0)})"

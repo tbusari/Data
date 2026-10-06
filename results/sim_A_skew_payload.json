@@ -1,0 +1,68 @@
+{
+  "profile": "A",
+  "seconds": 10.0,
+  "frames_source": 20480,
+  "ber": 0.0,
+  "layout": {
+    "counter_word": 3,
+    "sec_word": 4,
+    "payload_words": 91,
+    "tag_words": 4,
+    "overhead_words": 6,
+    "overhead_fraction": 0.06
+  },
+  "channel": {
+    "lost_to_dropout": 4096,
+    "lost_to_sync_corruption": 0,
+    "flipped_bits": 0,
+    "injected": 64,
+    "replayed": 32,
+    "dropout_frames": 4096,
+    "dropout_seconds": 2.0
+  },
+  "ground_skew_words": 1,
+  "skew_mode": "payload",
+  "dropout_start_frame": 10240,
+  "non_genuine_frames_released": 0,
+  "decryptor": {
+    "session_established": 1,
+    "auth_fail": 16480
+  },
+  "delivered": 0,
+  "payload_exact": 0,
+  "first_frame_decrypted_after_dropout": null,
+  "frames_lost_beyond_dropout": null,
+  "config_hash_match": false,
+  "major_frame_auth": {
+    "authenticated": 0,
+    "auth_fail": 0,
+    "incomplete": 0,
+    "unverified": 0
+  },
+  "counter_check": {
+    "frames": 16480,
+    "passes": 16475,
+    "fails": 2,
+    "dropped_frames": 22433,
+    "gap_events": 2,
+    "first_fail_index": 12353,
+    "first_anomaly_index": 10240,
+    "consistent": true
+  },
+  "transition_stats": {
+    "plaintext": {
+      "bits": 32768000,
+      "transition_density": 0.37832001886962946,
+      "longest_run": 559
+    },
+    "ciphertext": {
+      "bits": 32768000,
+      "transition_density": 0.4911744229484382,
+      "longest_run": 40
+    }
+  },
+  "timing_ms_per_frame": {
+    "encrypt": 0.4309947947753967,
+    "decrypt": 2.3989933437499946
+  }
+}

@@ -1,21 +1,22 @@
 \begin{table}[htbp]
   \centering
-  \caption{Security-layer simulation (\S\ref{sec:security}). ``Delivered'' counts frames released to the user; ``exact'' those bit-identical to the source. Injected frames are 64 per run, replayed frames 32. Lost beyond outage: frames after signal restoration that did not decrypt. Transition density and longest run are for the serialized NRZ-L stream before and after the security layer.}
+  \caption{Security-layer simulation (\S\ref{sec:security}). Each run carries 64 injected frames (correct header, random payload) and one replayed major frame (32 frames). ``Delivered'' counts frames released to the user; ``non-genuine released'' those among them that are not bit-identical to the source (profile~B releases before authenticating and condemns 15.6~ms later). ``Lost beyond outage'' counts genuine frames after signal restoration that failed to decrypt. Transition density and longest run are for the serialized NRZ-L stream before and after the security layer.}
   \label{tab:sec}
   \scriptsize
-  \begin{tabular}{@{}p{3.1cm}cccccccccc@{}}
+  \begin{tabular}{@{}p{3.3cm}ccccccccc@{}}
     \toprule
-    Profile & BER & Over- & Dropout & Delivered & Exact & Injected & Replayed & Lost beyond & Major frames & Cfg \\
-            &     & head  & (s)     &           &       & rejected & rejected & outage      & auth / fail / unverif. & hash \\
+    Profile & BER & Over- & Dropout & Delivered & Non-genuine & Rejected at & Lost beyond & Major frames & Cfg \\
+            &     & head  & (s)     &           & released    & frame level & outage      & auth / fail / unverif. & hash \\
     \midrule
-    A, 64-bit tag & 0 & 6\% & 2 & 16{,}384 & 16{,}384 & 64/64 & 32/32 & 0 & -- & match \\
-    A, 32-bit tag & 0 & 4\% & 2 & 16{,}384 & 16{,}384 & 64/64 & 32/32 & 0 & -- & match \\
-    B, deferred & 0 & 2\% & 2 & 16{,}448 & 16{,}384 & 64/64 (via tag) & 32/32 & 0 & 506 / 4 / 3 & match \\
-    A, 64-bit tag & $10^{-6}$ & 6\% & 2 & 16{,}355 & 16{,}355 & 64/64 & 32/32 & 0 & -- & match \\
-    A, 64-bit tag & $10^{-5}$ & 6\% & 2 & 16{,}126 & 16{,}126 & 64/64 & 32/32 & 0 & -- & match \\
-    B, deferred & $10^{-5}$ & 2\% & 2 & 16{,}442 & 16{,}129 & 64/64 (via tag) & 32/32 & 27193 & 304 / 197 / 13 & match \\
-    A, 64-bit tag, 34~s outage across counter wrap & 0 & 6\% & 34 & 40{,}960 & 40{,}960 & 0/64 & 0/32 & all & -- & match \\
-    A, 64-bit tag, ground map skewed one word & 0 & 6\% & 2 & 0 & 0 & n/a & n/a & all & -- & -- \\
+    A, 64-bit tag & 0 & 6\% & 2 & 16{,}384 & 0 & 96 (auth 64, replay 32) & 0 & -- & match \\
+    A, 32-bit tag & 0 & 4\% & 2 & 16{,}384 & 0 & 96 (auth 64, replay 32) & 0 & -- & match \\
+    B, deferred & 0 & 2\% & 2 & 16{,}448 & 64 & 32 (replay 32) & 0 & 506 / 4 / 3 & match \\
+    A, 64-bit tag & $10^{-6}$ & 6\% & 2 & 16{,}355 & 0 & 125 (auth 93, replay 32) & 0 & -- & match \\
+    A, 64-bit tag & $10^{-5}$ & 6\% & 2 & 16{,}131 & 0 & 348 (auth 316, replay 32) & 0 & -- & match \\
+    B, deferred & $10^{-5}$ & 2\% & 2 & 16{,}447 & 313 & 32 (replay 32) & 0 & 304 / 202 / 8 & match \\
+    A, 64-bit tag, 34~s outage across counter wrap & 0 & 6\% & 34 & 53{,}248 & 0 & 96 (auth 96, replay 0) & 0 & -- & match \\
+    A, 64-bit tag, ground payload map relocated one word & 0 & 6\% & 2 & 0 & 0 & all (auth fail) & all & -- & mismatch \\
+    A, 64-bit tag, ground reads security words from wrong slot & 0 & 6\% & 2 & 0 & 0 & all (no session) & all & -- & unreadable \\
     \bottomrule
   \end{tabular}
 
@@ -25,9 +26,9 @@
      & Plaintext stream & Secured stream \\
     \midrule
     NRZ-L transition density (per bit) & 0.378 & 0.491 \\
-    Longest run without transition (bits) & 559 & 39 \\
+    Longest run without transition (bits) & 559 & 40 \\
     Frames with a bit error at BER $10^{-5}$ (profile A): flipped bits / frames failing authentication & \multicolumn{2}{c}{258 / 252} \\
-    Software throughput, pure Python (ms per minor frame, encrypt / decrypt) & \multicolumn{2}{c}{0.43 / 0.44} \\
+    Software throughput, pure Python (ms per minor frame, encrypt / decrypt) & \multicolumn{2}{c}{0.44 / 0.46} \\
     \bottomrule
   \end{tabular}
 \end{table}
