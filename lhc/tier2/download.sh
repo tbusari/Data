@@ -10,20 +10,22 @@ set -euo pipefail
 DEST=${1:-$HOME/cms-opendata-2012}
 BASE=https://opendata.cern.ch/eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool
 mkdir -p "$DEST"
+# record 12341 (2.1 GiB) sits at the top level; records 12361-12368 (~12 GiB) under ForHiggsTo4Leptons/
 FILES=(
   Run2012BC_DoubleMuParked_Muons.root
-  Run2012B_DoubleMuParked.root
-  Run2012C_DoubleMuParked.root
-  Run2012B_DoubleElectron.root
-  Run2012C_DoubleElectron.root
-  SMHiggsToZZTo4L.root
-  ZZTo4mu.root
-  ZZTo4e.root
-  ZZTo2e2mu.root
+  ForHiggsTo4Leptons/SMHiggsToZZTo4L.root
+  ForHiggsTo4Leptons/ZZTo4mu.root
+  ForHiggsTo4Leptons/ZZTo4e.root
+  ForHiggsTo4Leptons/ZZTo2e2mu.root
+  ForHiggsTo4Leptons/Run2012B_DoubleMuParked.root
+  ForHiggsTo4Leptons/Run2012C_DoubleMuParked.root
+  ForHiggsTo4Leptons/Run2012B_DoubleElectron.root
+  ForHiggsTo4Leptons/Run2012C_DoubleElectron.root
 )
 for f in "${FILES[@]}"; do
-  if [ -s "$DEST/$f" ]; then echo "have $f"; continue; fi
+  b=$(basename "$f")
+  if [ -s "$DEST/$b" ]; then echo "have $b"; continue; fi
   echo "fetching $f"
-  curl -fL --retry 4 --retry-delay 5 -C - -o "$DEST/$f.part" "$BASE/$f" && mv "$DEST/$f.part" "$DEST/$f"
+  curl -fL --retry 4 --retry-delay 5 -C - -o "$DEST/$b.part" "$BASE/$f" && mv "$DEST/$b.part" "$DEST/$b"
 done
 ls -l "$DEST"

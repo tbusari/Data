@@ -44,12 +44,14 @@ m4, _ = select(build(two_body_pts(PDG['Z']) + two_body_pts(8.0, 1.0), []), '4mu'
 bad = [lep(45, 0, 0, +1), lep(45, 0, 3.1, +1), lep(15, 0, 1, +1), lep(15, 0, 4.1, -1)]
 bad = [(l['pt'], l['eta'], l['phi'], l['charge']) for l in bad]
 m5, _ = select(build(bad, []), '4mu'); assert len(m5) == 0
-# 5. Z1 lepton pT 20/10 rule: Z1 at 91 GeV but boosted so one lepton has 9 GeV -> fail
-soft = [(80.0, 0, 0, +1), (9.0, 0, 3.0, -1)]   # m ~ 53 GeV pair, still 'closest to Z' here
-m6, _ = select(build(soft + two_body_pts(20.0, 1.5), []), '4mu'); assert len(m6) == 0
+# 5. pT 20/10 rule exists only in 2mu2e (skim.cxx). Four 15 GeV leptons: Z1 = 45 GeV pair made with a
+#    rapidity gap (m^2 = 2 pt1 pt2 (cosh(deta) - cos(dphi))), Z2 = 30 GeV pair at rest.
+soft = [(15.0, 0.0, 0.0, +1), (15.0, 1.92, math.pi, -1)] + two_body_pts(30.0, 1.0)
+m6, _ = select(build(soft[:2], soft[2:]), '2mu2e'); assert len(m6) == 0, 'no pair has 20/10 GeV -> 2mu2e fails'
+m6b, _ = select(build(soft, []), '4mu'); assert len(m6b) == 1, '4mu has no 20/10 cut -> passes'
 # 6. isolation cut: iso 0.6 fails
 ev = build(mu, []); ev['Muon_pfRelIso04_all'] = ak.Array([[0.6, 0.05, 0.05, 0.05]])
 m7, _ = select(ev, '4mu'); assert len(m7) == 0
 # 7. mass value sanity: with all leptons massless-ish and Z's at rest, m4l should be sqrt((91.19+30)^2 - |p|^2) with p=0 -> 121.19
 assert abs(m[0] - (PDG['Z'] + 30.0)) < 0.2, m[0]
-print('all 7 selection checks passed; m4l of the clean event = %.2f GeV' % m[0])
+print('all 8 selection checks passed; m4l of the clean event = %.2f GeV' % m[0])

@@ -4,12 +4,17 @@
 Re-implements the selection of the CERN Open Data H->4l example (record 5500,
 Jomhari, Geiser, Bin Anuar 2017) in the form used by record 12360 / ROOT tutorial df103:
 
-  4mu   : exactly 4 muons,   pT>5,  |eta|<2.4, pfRelIso04<0.40
-  4e    : exactly 4 electrons, pT>7, |eta|<2.5, pfRelIso03<0.40
-  2mu2e : exactly 2 + 2
-  all leptons: |dxy|<0.5 cm, |dz|<1 cm, 3D impact-parameter significance < 4, dR(l,l) > 0.02
-  net charge zero per flavour; Z1 = OS-SF pair closest to m_Z, Z2 = the other pair
-  40 < m(Z1) < 120, 12 < m(Z2) < 120 GeV; Z1 leptons pT > 20 and > 10 GeV
+(selection transcribed from that record's skim.cxx; z_mass = 91.2 GeV there)
+
+  4mu   : exactly 4 muons (2 positive, 2 negative), pT>5,  |eta|<2.4, pfRelIso04<0.40
+  4e    : exactly 4 electrons (2+, 2-),              pT>7,  |eta|<2.5, pfRelIso03<0.40
+  2mu2e : exactly 2 muons + 2 electrons, net charge 0 per flavour, same per-lepton cuts,
+          and either the muon pair or the electron pair has pT > 20 and > 10 GeV
+  all leptons: |dxy|<0.5 cm, |dz|<1 cm, 3D impact-parameter significance < 4
+  Z pairing: same flavour -> OS pair closest to 91.2 GeV is Z1, the other two are Z2;
+             2mu2e -> the flavour pair closer to 91.2 GeV is Z1
+  dR > 0.02 between the two leptons of each Z candidate
+  40 < m(Z1) < 120, 12 < m(Z2) < 120 GeV
 
 Simulation is normalised to L = 11.58 fb^-1 with the cross sections used by the example.
 Outputs: histograms (npz), figure, JSON summary with yields in 120-130 GeV, Poisson
@@ -28,6 +33,8 @@ import numpy as np
 from scipy.stats import poisson, norm
 
 from nanolib import PDG, iterate, p4, mass_of, load_golden, golden_mask
+
+ZMASS = 91.2   # value used by skim.cxx (record 12360)
 
 LUMI = 11580.0                                  # pb^-1, 2012 open data (DoubleMuParked + DoubleElectron)
 XSEC = {'SMHiggsToZZTo4L': 0.0065, 'ZZTo4mu': 0.077, 'ZZTo4e': 0.077, 'ZZTo2e2mu': 0.18}   # pb
@@ -52,31 +59,27 @@ def good(ev, pre, pt_min, eta_max, iso):
             & (abs(dxy) < 0.5) & (abs(dz) < 1.0) & (sip < 4))
 
 
-def min_dr_ok(eta, phi):
-    """True if every lepton pair in the event is separated by dR > 0.02."""
-    pairs = ak.combinations(ak.zip({'eta': eta, 'phi': phi}), 2)
-    dphi = abs(pairs['0'].phi - pairs['1'].phi)
+def dr_ok(a, b):
+    dphi = abs(a.phi - b.phi)
     dphi = ak.where(dphi > np.pi, 2 * np.pi - dphi, dphi)
-    dr = np.sqrt((pairs['0'].eta - pairs['1'].eta) ** 2 + dphi ** 2)
-    return ak.all(dr > 0.02, axis=1)
+    return np.sqrt((a.eta - b.eta) ** 2 + dphi ** 2) > 0.02
 
 
 def z_pairs_same_flavour(l):
-    """For 4 same-flavour leptons return (mZ1, mZ2, pt of Z1 leptons) using the CMS pairing."""
+    """For 4 same-flavour leptons: Z1 = OS pair closest to ZMASS, Z2 = the other two.
+    Returns (mZ1, mZ2, dR-ok flag for both pairs)."""
     idx = ak.local_index(l.pt)
-    pairs = ak.combinations(ak.zip({'i': idx, 'q': l.charge, 'v': l.v4, 'pt': l.pt}), 2)
+    pairs = ak.combinations(ak.zip({'i': idx, 'q': l.charge, 'v': l.v4, 'eta': l.eta, 'phi': l.phi}), 2)
     os_ = pairs[pairs['0'].q != pairs['1'].q]
     m = mass_of(os_['0'].v, os_['1'].v)
-    best = ak.argmin(abs(m - PDG['Z']), axis=1, keepdims=True)
+    best = ak.argmin(abs(m - ZMASS), axis=1, keepdims=True)
     z1 = os_[best]
     mz1 = ak.firsts(m[best])
-    # remaining two leptons: those whose index is not in Z1
     i0, i1 = ak.firsts(z1['0'].i), ak.firsts(z1['1'].i)
-    keep = (idx != i0) & (idx != i1)
-    r = l[keep]
+    r = l[(idx != i0) & (idx != i1)]                      # the two leptons not in Z1
     mz2 = mass_of(r.v4[:, 0], r.v4[:, 1])
-    z1pt = ak.concatenate([z1['0'].pt, z1['1'].pt], axis=1)
-    return mz1, mz2, z1pt
+    ok = ak.firsts(dr_ok(z1['0'], z1['1'])) & dr_ok(r[:, 0], r[:, 1])
+    return mz1, mz2, ok
 
 
 def leptons(ev, pre, mass):
@@ -86,49 +89,39 @@ def leptons(ev, pre, mass):
 
 
 def select(chunk, channel):
-    """Return (m4l array, event-id records) for one chunk and channel in {'4mu','4e','2mu2e'}."""
+    """Return (m4l array, selected events) for one chunk and channel in {'4mu','4e','2mu2e'}."""
     ev = chunk
-    if channel == '4mu':
-        ev = ev[(ev.nMuon == 4) & (ev.nElectron == 0) if 'nElectron' in ev.fields else ev.nMuon == 4]
-        ev = ev[ak.all(good(ev, 'Muon', 5, 2.4, 'pfRelIso04_all'), axis=1)]
-        ev = ev[ak.sum(ev.Muon_charge, axis=1) == 0]
-        ev = ev[min_dr_ok(ev.Muon_eta, ev.Muon_phi)]
+    if channel in ('4mu', '4e'):
+        pre, mass, ptmin, etamax, iso = (('Muon', PDG['mu'], 5, 2.4, 'pfRelIso04_all') if channel == '4mu'
+                                         else ('Electron', PDG['e'], 7, 2.5, 'pfRelIso03_all'))
+        q = ev[f'{pre}_charge']
+        ev = ev[(ev[f'n{pre}'] == 4) & (ak.sum(q == 1, axis=1) == 2) & (ak.sum(q == -1, axis=1) == 2)]
+        ev = ev[ak.all(good(ev, pre, ptmin, etamax, iso), axis=1)]
         if len(ev) == 0:
             return np.array([]), ev
-        l = leptons(ev, 'Muon', PDG['mu'])
-        mz1, mz2, z1pt = z_pairs_same_flavour(l)
-        m4l = mass_of(l.v4[:, 0], l.v4[:, 1], l.v4[:, 2], l.v4[:, 3])
-    elif channel == '4e':
-        ev = ev[(ev.nElectron == 4) & (ev.nMuon == 0) if 'nMuon' in ev.fields else ev.nElectron == 4]
-        ev = ev[ak.all(good(ev, 'Electron', 7, 2.5, 'pfRelIso03_all'), axis=1)]
-        ev = ev[ak.sum(ev.Electron_charge, axis=1) == 0]
-        ev = ev[min_dr_ok(ev.Electron_eta, ev.Electron_phi)]
-        if len(ev) == 0:
-            return np.array([]), ev
-        l = leptons(ev, 'Electron', PDG['e'])
-        mz1, mz2, z1pt = z_pairs_same_flavour(l)
+        l = leptons(ev, pre, mass)
+        mz1, mz2, ok = z_pairs_same_flavour(l)
         m4l = mass_of(l.v4[:, 0], l.v4[:, 1], l.v4[:, 2], l.v4[:, 3])
     else:
         ev = ev[(ev.nMuon == 2) & (ev.nElectron == 2)]
         ev = ev[ak.all(good(ev, 'Muon', 5, 2.4, 'pfRelIso04_all'), axis=1)
                 & ak.all(good(ev, 'Electron', 7, 2.5, 'pfRelIso03_all'), axis=1)]
         ev = ev[(ak.sum(ev.Muon_charge, axis=1) == 0) & (ak.sum(ev.Electron_charge, axis=1) == 0)]
-        ev = ev[min_dr_ok(ak.concatenate([ev.Muon_eta, ev.Electron_eta], axis=1),
-                          ak.concatenate([ev.Muon_phi, ev.Electron_phi], axis=1))]
         if len(ev) == 0:
             return np.array([]), ev
         mu = leptons(ev, 'Muon', PDG['mu'])
         el = leptons(ev, 'Electron', PDG['e'])
+        mu_pt = ak.sort(mu.pt, axis=1, ascending=False)
+        el_pt = ak.sort(el.pt, axis=1, ascending=False)
+        ptok = ((mu_pt[:, 0] > 20) & (mu_pt[:, 1] > 10)) | ((el_pt[:, 0] > 20) & (el_pt[:, 1] > 10))
+        ok = ptok & dr_ok(mu[:, 0], mu[:, 1]) & dr_ok(el[:, 0], el[:, 1])
         mmm = mass_of(mu.v4[:, 0], mu.v4[:, 1])
         mee = mass_of(el.v4[:, 0], el.v4[:, 1])
-        mu_is_z1 = abs(mmm - PDG['Z']) < abs(mee - PDG['Z'])
+        mu_is_z1 = abs(mmm - ZMASS) < abs(mee - ZMASS)
         mz1 = ak.where(mu_is_z1, mmm, mee)
         mz2 = ak.where(mu_is_z1, mee, mmm)
-        z1pt = ak.where(mu_is_z1, mu.pt, el.pt)
         m4l = mass_of(mu.v4[:, 0], mu.v4[:, 1], el.v4[:, 0], el.v4[:, 1])
-    z1pt_sorted = ak.sort(z1pt, axis=1, ascending=False)
-    ok = ((mz1 > 40) & (mz1 < 120) & (mz2 > 12) & (mz2 < 120)
-          & (z1pt_sorted[:, 0] > 20) & (z1pt_sorted[:, 1] > 10))
+    ok = ok & (mz1 > 40) & (mz1 < 120) & (mz2 > 12) & (mz2 < 120)
     return ak.to_numpy(m4l[ok]), ev[ok]
 
 
@@ -183,8 +176,9 @@ def main():
 
     sig_bins = (BINS[:-1] >= SIGNAL[0]) & (BINS[:-1] < SIGNAL[1])
     tot_data = sum(data_hist.values())
-    bkg = sum(v for n, v in mc_hist.items() if n != 'SMHiggsToZZTo4L' for v in [sum(v.values())]) if mc_hist else np.zeros(len(BINS) - 1)
-    higgs = sum(mc_hist['SMHiggsToZZTo4L'].values()) if 'SMHiggsToZZTo4L' in mc_hist else np.zeros(len(BINS) - 1)
+    zero = np.zeros(len(BINS) - 1)
+    bkg = sum((sum(h.values(), zero) for n, h in mc_hist.items() if n != 'SMHiggsToZZTo4L'), zero)
+    higgs = sum(mc_hist['SMHiggsToZZTo4L'].values(), zero) if 'SMHiggsToZZTo4L' in mc_hist else zero
     n_obs = int(tot_data[sig_bins].sum()); b = float(bkg[sig_bins].sum()); s = float(higgs[sig_bins].sum())
     print(f'\nsignal window {SIGNAL[0]:.0f}-{SIGNAL[1]:.0f} GeV: observed {n_obs}, expected ZZ background {b:.2f}, expected SM Higgs {s:.2f}')
     for c in data_hist:
