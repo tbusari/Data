@@ -1,0 +1,25 @@
+DoubleMuParked: 61,540,413 events read
+DoubleElectron: 54,011,828 events read
+SMHiggsToZZTo4L: 299,973 events read, weight 2.509e-04
+ZZTo4mu: 1,499,064 events read, weight 8.244e-04
+ZZTo4e: 1,499,093 events read, weight 8.244e-04
+ZZTo2e2mu: 1,497,445 events read, weight 1.929e-03
+
+signal window 120-130 GeV: observed 10, expected ZZ background 3.06, expected SM Higgs 5.51
+  4mu    observed 2
+  2mu2e  observed 5
+  4e     observed 3
+  Poisson p-value for background-only: 0.00127  (3.02 sigma); expected with S+B: 8.57
+
+data candidates in signal window (run, lumi, event, m4l):
+  4mu    199319   970  1203594102   125.34
+  4mu    201707   503   635670564   121.80
+  2mu2e  195099   115   137440354   126.48
+  2mu2e  198213    31    27000461   121.56
+  2mu2e  200091  1481  1605749984   129.91
+  2mu2e  200466   226   153791279   126.29
+  2mu2e  201174   335   216745941   124.63
+  4e     194912   735  1149504856   124.81
+  4e     201707   656   805047482   125.37
+  4e     202299   304   421267699   125.16
+exit 0

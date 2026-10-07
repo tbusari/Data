@@ -178,6 +178,25 @@ reproducing the textbook CMS dimuon spectrum that CERN Open Data publishes as re
 3. Only 2011-2012 (Run 1) and a 50 % share of each year are public; the Run 2 results
    quoted in section 4 use 20-60 times more luminosity than what is in the open data.
 
+### 3.6 Beyond the display: the full public 2012 sample (`tier2/`)
+
+The two statistical tests that the public NanoAOD files support were run; details and
+tables in `tier2/README.md` section 4, outputs in `results/tier2/`.
+
+* **Dimuon spectrum**, 24.1 million opposite-sign pairs: J/psi, psi(2S) and the three
+  Upsilon states at their PDG masses to 0.12-0.15 % (34 MeV and 101 MeV resolution), the
+  Z 0.3-0.5 % low (uncorrected momentum scale plus unrecovered final-state radiation),
+  1.2-1.6 GeV resolution. Every published resonance in the CMS dimuon spectrum is
+  reproduced.
+* **H -> ZZ* -> 4l**, 11.6 fb^-1: 10 data events in 120-130 GeV against 3.06 expected
+  ZZ background and 5.51 expected SM Higgs events, a 3.0 sigma counting excess; the
+  Z -> 4l control region agrees (32 vs 27.9). Nine of the ten are the display's events
+  with identical masses; the two display events lost and the one gained are explained by
+  the absence of lepton identification in the NanoAOD skim.
+* The display file itself is byte-identical (md5) to CERN Open Data record 5200, whose
+  candidate lists contain all 11 events with official masses within 0.5 GeV of the
+  recomputed ones (`results/record5200_compare.txt`).
+
 ## 4. Cross-reference to the open literature since the Higgs discovery
 
 Facts below were gathered by web search; arXiv, Nature and opendata.cern.ch could not be
@@ -307,5 +326,6 @@ documentation (2024) is the only published tutorial on computing invariant masse
 * Those 11 events reproduce the published topology and mass (mean 125.4 GeV) and match
   the open-data re-analysis bin for bin; the Z and J/psi show up where they should.
 * Nothing else in the repository constitutes a statistical test of a published result.
-  Verifying anything beyond this (H -> gamma gamma, Bs -> mu mu, top, W, exotics) needs
-  the full datasets from opendata.cern.ch and the CMSSW or NanoAOD tool-chain listed above.
+  With the full public 2012 NanoAOD files (section 3.6) the dimuon resonances and the
+  4l Higgs excess are reproduced as statistical tests; H -> gamma gamma, Bs -> mu mu,
+  top, W and exotics would need the AOD datasets and the CMSSW tool-chain.

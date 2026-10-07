@@ -5,10 +5,9 @@ published results, using the CMS 2012 outreach NanoAOD files from the CERN Open 
 portal (a few GiB in total) and nothing heavier than `uproot`, `awkward`, `numpy`,
 `scipy` and `matplotlib`. No CMSSW, no ROOT installation.
 
-Status: the code is complete and validated on synthetic files with the exact NanoAOD
-branch layout (`make_toy_nanoaod.py`, `test_h4l_selection.py`). It has **not yet been run
-on the real files**, because the session that built it could not reach
-`opendata.cern.ch`. Running it is one command once the files are downloaded.
+Status: both analyses have been run on the real files (section 4). The code was first
+validated on synthetic files with the exact NanoAOD branch layout (`make_toy_nanoaod.py`,
+`test_h4l_selection.py`) and on the real Higgs simulation.
 
 ## 0. Setup and data
 
@@ -26,11 +25,12 @@ python3 test_h4l_selection.py            # 7 hand-built selection checks, < 1 s
 | `SMHiggsToZZTo4L.root` | 12361 | simulation, gg -> H -> ZZ -> 4l, m_H = 125 GeV | signal template |
 | `ZZTo4mu.root`, `ZZTo4e.root`, `ZZTo2e2mu.root` | 12362-12364 | simulation, qq -> ZZ -> 4l | background template |
 
-Record numbers other than 12341 and 12366 were not verified from the portal in this
-session; the file names are those used by CERN Open Data record 12360 (S. Wunsch 2021)
-and by the ROOT tutorials `df102_NanoAODDimuonAnalysis` and `df103_NanoAODHiggsAnalysis`.
-`download.sh` fetches them from the portal's EOS path
-`eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/`.
+All record numbers, file names, sizes and event counts above were read from the portal's
+record API. The four-lepton files live under `AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/`,
+the muon file one level up. `download.sh` fetches them sequentially;
+`download_parallel.sh` fetches each as eight HTTP range requests and resumes through the
+connection resets a rate-limited proxy injects (about 4 MB/s instead of 1.5 MB/s here;
+14 GiB in roughly 1 h).
 
 ## 1. Dimuon spectrum (`dimuon_spectrum.py`)
 
@@ -201,3 +201,61 @@ Verdict: with 24 million pairs the dimuon spectrum reproduces every published re
 position to better than 0.2 % below 10 GeV and to 0.5 % at the Z, and the resolutions
 agree with the detector-performance papers. The residual offsets are the expected ones
 for uncalibrated legacy data, not evidence of any disagreement with the literature.
+
+### 4.2 H -> ZZ* -> 4l (records 12361-12368, run 2026-10-07)
+
+61.5 M DoubleMuParked and 54.0 M DoubleElectron events read, all four simulations
+processed, validated-lumisection filter applied (removes nothing, as expected for the
+outreach files). Full output in `../results/tier2/h4l/`, log in `../results/tier2/h4l.log`.
+
+| | 4mu | 2mu2e | 4e | total |
+|---|---|---|---|---|
+| Data, 120 <= m4l < 130 GeV | 2 | 5 | 3 | **10** |
+| Expected ZZ (simulation) | 1.10 | 1.39 | 0.57 | 3.06 |
+| Expected SM Higgs, m_H = 125 GeV | 2.07 | 2.37 | 1.08 | 5.51 |
+| Expected S + B | 3.17 | 3.76 | 1.65 | 8.57 |
+
+* Background-only Poisson probability of >= 10 events given 3.06 expected: p = 0.0013,
+  i.e. **3.0 standard deviations** (simple counting, no systematic uncertainties).
+  This is consistent with the "about 2 sigma" the AOD-level example quotes and with the
+  3.2 sigma of the 4l channel in the discovery paper, which used the full 2012 sample and
+  a kinematic discriminant.
+* Z -> 4l control region, 85-97 GeV: 32 data events vs 27.9 expected from ZZ/Z gamma*,
+  which normalises the background estimate independently of the signal window.
+* 200 candidates in 70-181 GeV, versus 240 in the AOD-level example (record 5200). The
+  NanoAOD selection is a strict subset: no lepton identification beyond isolation and
+  impact parameter, exactly four leptons.
+
+**Event-by-event comparison with the display sample (`Hto4l_120-130GeV.ig`):**
+
+| ig file (11 events) | this reanalysis | official AOD mass (record 5200) |
+|---|---|---|
+| 195099 / 137440354, 2e2mu | 2mu2e, 126.48 | 126.48 |
+| 198213 / 27000461, 2e2mu | 2mu2e, 121.56 | 121.56 |
+| 199319 / 1203594102, 4mu | 4mu, 125.34 | 125.34 |
+| 200091 / 1605749984, 2e2mu | 2mu2e, 129.91 | 129.91 |
+| 200466 / 153791279, 2e2mu | 2mu2e, 126.29 | 126.29 |
+| 201174 / 216745941, 2e2mu | 2mu2e, 124.63 | 124.63 |
+| 201191 / 1357605031, 2e2mu | not selected: NanoAOD has 4 electrons (two with isolation 3.2 and 11.0), the reference skim also drops it | 128.58 |
+| 201707 / 635670564, 4mu | 4mu, 121.80 | 121.81 |
+| 201707 / 805047482, 4e | 4e, 125.37 | 125.37 |
+| 202178 / 1430970868, 4mu | not selected: NanoAOD has a fifth muon (4.9 GeV, no isolation value), "exactly four" fails in the reference skim too | 122.00 |
+| 202299 / 421267699, 4e | 4e, 125.16 | 125.16 |
+| (new) 194912 / 1149504856, 4e | 4e, 124.81 | not in the AOD candidate list |
+
+Nine of the ten window candidates are the display's events, with masses identical to the
+official values to 0.01 GeV (same NanoAOD inputs, same four-vectors). The two display
+events that are lost, and the one 4e event that is gained, are exactly the differences
+between the AOD-level selection with lepton identification and the NanoAOD skim without
+it; `diag_2mu2e.py` prints the lepton content of any (run, event) to see why.
+
+A note on the NanoAOD files: leptons without a usable isolation or impact-parameter value
+carry -999. The reference skim cuts on `abs(value)`, which rejects them; without the
+`abs()` the 2mu2e channel is flooded by Z -> mumu plus two fake electrons (111 window
+events instead of 5). The unit test now covers this.
+
+Verdict: the full public 2012 sample reproduces the Higgs excess at the level the
+literature leads one to expect for 11.6 fb^-1 and a simplified selection (3 sigma
+counting significance, 10 observed over 3.1 background with 5.5 signal expected), and
+the eleven events CMS put in its outreach event display are, to within the two
+identification-related differences, the signal-window events of the public data.
