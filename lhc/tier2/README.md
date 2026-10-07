@@ -156,3 +156,48 @@ What to expect on the real data:
 | `test_h4l_selection.py` | unit test of the selection and Z pairing with hand-built events |
 | `make_toy_nanoaod.py` | synthetic NanoAOD-layout files for pipeline tests (not physics) |
 | `download.sh` | fetches the nine real files from the portal |
+
+## 4. Results on the real data
+
+### 4.1 Dimuon spectrum (record 12341, run 2026-10-07)
+
+61,540,413 events read, 24,067,843 opposite-sign dimuon pairs selected (45 s on one core).
+Full output in `../results/tier2/dimuon/`.
+
+| Resonance | Fitted mass [GeV] | PDG [GeV] | Offset | Resolution sigma [MeV] |
+|---|---|---|---|---|
+| J/psi | 3.0926 +- 0.0006 | 3.0969 | -4.3 MeV (-0.14 %) | 34.2 +- 0.5 |
+| psi(2S) | 3.6816 +- 0.0005 | 3.6861 | -4.5 MeV (-0.12 %) | 36.2 +- 0.5 |
+| Upsilon(1S) | 9.4464 +- 0.0014 | 9.4604 | -14.0 MeV (-0.15 %) | 100.8 +- 1.2 |
+| Upsilon(2S), (3S) | tied to 1S by PDG splittings; the joint fit describes all three peaks | 10.0233, 10.3552 | -14 MeV | scaled with mass |
+| Z (Voigt + exponential, 70-112 GeV) | 90.721 +- 0.035 | 91.1880 | -467 MeV (-0.51 %) | 1585 +- 44 |
+| Z (Voigt + linear, 88-95 GeV) | 90.895 | 91.1880 | -293 MeV (-0.32 %) | 1185 |
+| Z, model-free peak position | 90.870 | 91.1880 | -318 MeV (-0.35 %) | |
+
+Reading:
+
+* The spectrum (`dimuon_spectrum.png`) shows the eta, rho/omega, phi, J/psi, psi(2S),
+  Upsilon(1S, 2S, 3S) and Z peaks and the trigger-threshold shoulder near 30 GeV, i.e.
+  the published CMS dimuon spectrum (record 12342, df102 tutorial) is reproduced from
+  the raw NanoAOD in under a minute.
+* Masses below 10 GeV are recovered to 0.12-0.15 % without any momentum-scale
+  correction, with the J/psi and Upsilon both low by the same fraction: that is the
+  size and sign of the known uncorrected 2012 muon momentum scale in the legacy
+  reconstruction (the Rochester-type corrections applied in CMS papers are of order
+  0.1-0.3 %).
+* The Z is 0.3-0.5 % low depending on the fit model (`z_window_scan.txt`). Two effects
+  add here: the same momentum-scale offset, and final-state radiation, which is not
+  recovered in the outreach files and moves the dimuon peak below the pole mass by a few
+  hundred MeV. The window dependence (174 MeV) is quoted as the model systematic; the
+  resolution of 1.2-1.6 GeV agrees with the CMS Run 1 dimuon resolution at the Z.
+* The three Upsilon states are cleanly separated with the 1S-2S-3S splittings fixed to
+  PDG (`dimuon_fits.png`), a direct check of tracker momentum resolution (101 MeV at
+  9.46 GeV, i.e. 1.1 %).
+* J/psi and psi(2S) resolutions of 34-36 MeV and the Upsilon resolution of 101 MeV match
+  the CMS Run 1 values (JINST 7 (2012) P10002 quotes 1-2 % momentum resolution for
+  muons of these momenta over the full |eta| range).
+
+Verdict: with 24 million pairs the dimuon spectrum reproduces every published resonance
+position to better than 0.2 % below 10 GeV and to 0.5 % at the Z, and the resolutions
+agree with the detector-performance papers. The residual offsets are the expected ones
+for uncalibrated legacy data, not evidence of any disagreement with the literature.

@@ -1,0 +1,12 @@
+ window [GeV]  background  pole [GeV]  sigma [GeV]  pole - PDG [MeV]
+    70-112    exponential      90.721        1.585              -467
+    70-112         linear      90.732        1.535              -456
+    80-100    exponential      90.771        1.473              -417
+    80-100         linear      90.784        1.458              -404
+    85-97     exponential      90.845        1.341              -343
+    85-97          linear      90.849        1.323              -339
+    88-95     exponential      90.895        1.196              -293
+    88-95          linear      90.895        1.185              -293
+
+model-free peak (parabola through the three highest bins): 90.870 GeV, -318 MeV from PDG
+spread of fitted poles: 90.721 to 90.895 GeV (174 MeV)
