@@ -18,6 +18,11 @@ security layer the rewrite proposes.
 | `tests/` | pytest suite, including the 1089 official Ascon known-answer vectors |
 | `results/` | Simulation outputs quoted in the revised manuscript (`tools/run_simulations.sh` regenerates them) |
 
+## Also in this repository
+
+`lhc/` is an unrelated side study: a survey of the CMS iSpy WebGL event display and its
+bundled CMS Open Data events, cross-referenced to published LHC results (`lhc/README.md`).
+
 ## Quick start
 
 ```bash

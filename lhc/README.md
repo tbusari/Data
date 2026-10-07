@@ -62,14 +62,21 @@ HLT `TriggerResults` and `hltTriggerSummaryAOD`.
 | File | Events | Run / LS | Date (UTC) | Primary dataset (CERN Open Data) |
 |---|---|---|---|---|
 | `DoubleMuParked_Run2012C_0.ig` | 25 | 199318 / 114 | 2012-07-20 | /DoubleMuParked/Run2012C-22Jan2013-v1/AOD, record 6030, DOI 10.7483/OPENDATA.CMS.M5AD.Y3V3 |
-| `DoubleElectron_Run2012C_0.ig` | 25 | 202016 / 562 | 2012-08-31 | /DoubleElectron/Run2012C-22Jan2013-v1/AOD |
+| `DoubleElectron_Run2012C_0.ig` | 25 | 202016 / 562 | 2012-08-31 | /DoubleElectron/Run2012C-22Jan2013-v1/AOD, record 6029, DOI 10.7483/OPENDATA.CMS.SINM.BV86 |
 | `DoublePhoton_Run2012B_0.ig` | 25 | 194115 / 702 | 2012-05-14 | /DoublePhoton/Run2012B-22Jan2013-v1/AOD |
 | `BJetPlusX_Run2012C_0.ig` | 25 | 198230 / 1380 | 2012-07-04 | /BJetPlusX/Run2012C-22Jan2013-v1/AOD |
-| `JetHT_Run2012C_0.ig` | 25 | 200600 / 125 | 2012-08-09 | /JetHT/Run2012C-22Jan2013-v1/AOD |
+| `JetHT_Run2012C_0.ig` | 25 | 200600 / 125 | 2012-08-09 | /JetHT/Run2012C-22Jan2013-v1/AOD, record 6036 |
 | `MET_Run2012C_0.ig` | 25 | 202209 / 14 | 2012-09-04 | /MET/Run2012C-22Jan2013-v1/AOD |
 | `MinimumBias_Run2012C_0.ig` | 25 | 198230 / 674 | 2012-07-04 | /MinimumBias/Run2012C-22Jan2013-v1/AOD |
 | `TauParked_Run2012C_0.ig` | 25 | 198272 / 297 | 2012-07-05 | /TauParked/Run2012C-22Jan2013-v1/AOD |
-| `Hto4l_120-130GeV.ig` | 11 | 10 runs, 195099-202299 | May-Sep 2012 | H->4l candidates selected from DoubleMuParked + DoubleElectron (section 3.1) |
+| `Hto4l_120-130GeV.ig` | 11 | 10 runs, 195099-202299 | May-Sep 2012 | H->4l candidates from DoubleMuParked + DoubleElectron; matches CERN Open Data record 5200 "Higgs candidate events ... selected in the H->4l example" (section 3.1) |
+
+Record numbers without a DOI above were confirmed only through search-engine snippets;
+the remaining five datasets (BJetPlusX, DoublePhoton, MET, MinimumBias, TauParked) are
+certainly in the same December 2017 release (CERN Open Data GitHub issue
+cernopendata/opendata.cern.ch#1404 lists event-display files for all 26 Run2012B/C
+primary datasets) but their record IDs were not verified because opendata.cern.ch is
+unreachable from this environment.
 
 Each per-dataset file is simply the first 25 events of one AOD file
 (`outputMaxEvents = 25` in `ispy-analyzers/python/ispy_AOD.py`), i.e. a single
@@ -170,3 +177,135 @@ reproducing the textbook CMS dimuon spectrum that CERN Open Data publishes as re
    are at the few-percent level.
 3. Only 2011-2012 (Run 1) and a 50 % share of each year are public; the Run 2 results
    quoted in section 4 use 20-60 times more luminosity than what is in the open data.
+
+## 4. Cross-reference to the open literature since the Higgs discovery
+
+Facts below were gathered by web search; arXiv, Nature and opendata.cern.ch could not be
+fetched directly from this environment. Items that rest on memory rather than a fetched
+source are marked *(unverified)*.
+
+### 4.1 Higgs mass: what the 11 events should be compared with
+
+| Measurement | m_H [GeV] | Reference |
+|---|---|---|
+| CMS discovery, gamma gamma + 4l, 2012 | 125.3 +- 0.4 (stat) +- 0.5 (syst) | PLB 716 (2012) 30, arXiv:1207.7235 |
+| ATLAS discovery, 2012 | 126.0 +- 0.4 +- 0.4 | PLB 716 (2012) 1, arXiv:1207.7214 |
+| CMS H->4l, full Run 1 | 125.6 +- 0.4 +- 0.2 (6.8 sigma; signal window 121.5-130.5 GeV) | PRD 89 (2014) 092007, arXiv:1312.5353 |
+| ATLAS + CMS Run 1 combination | 125.09 +- 0.21 +- 0.11 | PRL 114 (2015) 191803, arXiv:1503.07589 |
+| CMS gamma gamma + 4l, 2016 + Run 1 | 125.38 +- 0.14 | PLB 805 (2020) 135425, arXiv:2002.06398 |
+| ATLAS 4l, full Run 2 | 124.99 +- 0.18 +- 0.04 | PLB 843 (2023) 137880, arXiv:2207.00320 |
+| ATLAS Run 1 + Run 2 combination | 125.11 +- 0.11 | PRL 131 (2023) 251802, arXiv:2308.04775 |
+| CMS 4l, full Run 2 (138 fb^-1) | 125.04 +- 0.12 | PRD 111 (2025) 092014, arXiv:2409.13663 |
+| PDG 2024 / 2025 world average | 125.20 +- 0.11 | PRD 110 (2024) 030001 |
+
+The 11 display events (mean 125.4 GeV, about 0.8 GeV statistical uncertainty on the mean,
+no calibration) are compatible with every entry. The file's 120-130 GeV window is the
+Run 1 CMS convention (121.5-130.5 GeV). The channel split (3 four-muon, 6 two-muon-
+two-electron, 2 four-electron) follows the expected relative yields: CMS quoted
+2.75 : 3.44 : 1.37 expected signal events (4mu : 2e2mu : 4e) for m_H = 125 GeV in
+110-160 GeV on 2011-2012 data (arXiv:1303.4571), and the open-data subset is 50 % of
+Run 1. SM branching fraction H -> ZZ* -> 4l (l = e, mu) is 1.24e-4 (ATLAS Open Data
+documentation), which is why only ~11 clean candidates exist in 10 fb^-1 of 2012 data.
+
+### 4.2 Open-data reproductions of the 4l result
+
+* **Record 5500**, Jomhari, Geiser, Bin Anuar (2017), DOI 10.7483/OPENDATA.CMS.JKB8.RR42,
+  code `cms-opendata-analyses/HiggsExample20112012` (CMSSW_5_3_32). Excess of about
+  2 sigma on the public 50 % of Run 1 versus 3.2 sigma in the 4l channel of the
+  discovery paper. Section 3.1 shows the display sample is this analysis's 2012 signal
+  region, event for event.
+* **Record 5200**: `HiggsCandidates/4lepton.ig` and `diphoton.ig`, "Higgs candidate
+  events from CMS 2011 and 2012 open data release selected in the H->4l example". This
+  is almost certainly where `Hto4l_120-130GeV.ig` was taken from (commit "new data from
+  web in file load", 10 Oct 2019); the repository itself does not document the origin.
+* **Record 12360**, S. Wunsch (2021), the same analysis in ROOT RDataFrame on NanoAOD,
+  DOI 10.7483/OPENDATA.CMS.F7HD.P3K4; REANA workflow `reanahub/reana-demo-cms-h4l`.
+* **Record 12342 / 12341**: 2012 DoubleMuParked muon NanoAOD (61.5 M events) and the
+  dimuon-spectrum example reproduced in section 3.3; the ROOT tutorial
+  `df102_NanoAODDimuonAnalysis` runs on the same file.
+* An H -> gamma gamma open-data example exists for the 2011 Photon and 2012
+  DoublePhoton datasets (`cms-opendata-analyses/2011-photon-2012-doublephoton-higgs-hgaga`);
+  it is the right next step for the `DoublePhoton` file but needs the full dataset.
+* No peer-reviewed journal paper re-deriving the 4l peak from CMS open data was found;
+  the reproductions live on the portal and GitHub. A 2026 preprint (arXiv:2603.20179)
+  reports autonomous agent reproduction of a CMS Run 1 open-data H -> tau tau result.
+
+### 4.3 Higgs properties established since 2012 (not testable with the bundled files)
+
+| Result | Experiment, significance | Reference |
+|---|---|---|
+| Spin-parity 0+ ; 0-, 1+, 1- excluded at >= 99.8 % CL | CMS 4l Run 1; ATLAS | arXiv:1312.5353, 1411.3441; arXiv:1307.1432 |
+| H -> tau tau observed | CMS 5.9 sigma; ATLAS 6.4 sigma | arXiv:1708.00373; 1811.08856 |
+| H -> bb observed | CMS 5.6 sigma; ATLAS 5.4 sigma | arXiv:1808.08242; 1808.08238 |
+| ttH production observed | CMS 5.2 sigma; ATLAS 6.3 sigma | arXiv:1804.02610; 1806.00425 |
+| H -> mu mu evidence | CMS 3.0 sigma; ATLAS Run 2+3 3.4 sigma | arXiv:2009.04363; PRL 135 (2025) 231802 |
+| H -> Z gamma evidence | ATLAS + CMS 3.4 sigma, mu = 2.2 +- 0.7 | arXiv:2309.03501 |
+| Global signal strength, 138 fb^-1 | ATLAS mu = 1.05 +- 0.06; CMS SM-compatible (p = 5.8 %) | Nature 607 (2022) 52 and 60; arXiv:2207.00092, 2207.00043 |
+| Width from off-shell production | CMS 3.2 (+2.4 -1.7) MeV; ATLAS 4.5 (+3.3 -2.5) MeV; CMS 2025 3.0 (+2.0 -1.5) MeV (SM 4.1 MeV) | arXiv:2202.06923; PLB 846 (2023) 138223; arXiv:2409.13663 |
+| HH production, ATLAS + CMS Run 2 combination | mu_HH < 2.5 (95 % CL), -0.71 < kappa_lambda < 6.1 | arXiv:2602.23991 (2026) |
+| Run 3 (13.6 TeV) fiducial cross sections | CMS 4l 2.89 (+0.60 -0.54) fb (SM 3.09); CMS gamma gamma 74 +- 12 fb (SM 67.8) | arXiv:2501.14849; 2504.17755 |
+
+### 4.4 Other post-2012 LHC results relevant to the bundled datasets
+
+* **Z and quarkonia** (DoubleMuParked, DoubleElectron): the Z candidates in section 3.2
+  and the J/psi candidate in section 3.3 are the only resonances visible in 25-event
+  samples; the full 2012 dimuon spectrum (record 12342) shows eta, rho/omega, phi, J/psi,
+  psi', Upsilon(1S,2S,3S) and Z. The 30 GeV bump in that spectrum is a trigger
+  threshold effect, not a resonance.
+* **Bs -> mu mu**: CMS + LHCb combined observation, Nature 522 (2015) 68, branching
+  fraction (2.8 +0.7 -0.6) x 10^-9, > 6 sigma, on 2011-2012 data. The DoubleMuParked
+  stream contains the relevant low-mass dimuon triggers, but the signal is a few dozen
+  events in 25 fb^-1.
+* **Diphoton resonances** (DoublePhoton): the CMS 8 TeV search covered 150-850 GeV
+  with no excess (PLB 750 (2015) 494, arXiv:1506.02301). The 750 GeV excess of
+  December 2015 (ATLAS local 3.9 sigma, CMS 2.6 sigma) disappeared with 2016 data
+  (CMS PLB 767 (2017) 147, arXiv:1609.02507; ATLAS JHEP 09 (2016) 001). The bundled
+  diphoton masses go up to 553 GeV (JetHT file), all consistent with the continuum.
+* **Jets + MET searches** (JetHT, MET, BJetPlusX): CMS 8 TeV monojet (EPJC 75 (2015)
+  235) found nothing; full Run 2 limits push gluinos above 2.0-2.3 TeV (CMS
+  arXiv:1908.04722; ATLAS JHEP 02 (2021) 143) and give the most restrictive
+  mediator limits (CMS monojet arXiv:2107.13021). The MET file's largest event has
+  124 GeV of PF MET, far below any search threshold.
+* **Top and W masses** (dilepton + jets + MET): ATLAS + CMS Run 1 top-mass combination
+  172.52 +- 0.33 GeV (PRL 132 (2024) 261902); first 13.6 TeV ttbar cross section
+  881 +- 30 pb (CMS arXiv:2303.10680). CMS W mass 80360.2 +- 9.9 MeV (Nature 652
+  (2026) 321, arXiv:2412.13872), consistent with the SM and with ATLAS, not with CDF
+  (80433.5 +- 9.4 MeV).
+* **LHCb exotics**: pentaquarks Pc(4380), Pc(4450) (2015, arXiv:1507.03414) and
+  Pc(4312), Pc(4440), Pc(4457) (2019, arXiv:1904.03947); T_cc+ (arXiv:2109.01038);
+  X(6900) in di-J/psi (arXiv:2006.16957), confirmed by ATLAS and CMS (PRL 131 (2023)
+  151902; PRL 132 (2024) 111901). None are reachable with CMS 2012 open data at this
+  sample size.
+
+### 4.5 CMS Open Data releases and tooling
+
+| Release | Content |
+|---|---|
+| Nov 2014 | 50 % of 2010 7 TeV data |
+| 2016 | 2011 7 TeV data |
+| Dec 2017 | 2012 8 TeV data, > 1 PB; the release used here |
+| Jul 2019 | 100 % of 2010 data, machine-learning sets |
+| Dec 2021 | 2015 13 TeV data (2.24 fb^-1) |
+| Dec 2022 | All Run 1 pp data complete |
+| Apr 2024 | 2016 13 TeV data (MiniAOD/NanoAOD), > 900 TB with simulation |
+| 2026 (planned) | 2017 13 TeV data, per DPHEP Global Report 2026 (arXiv:2607.06775); no 2018 or Run 3 release found *(unverified)* |
+
+Tools: CMSSW Docker images per data year (CMSSW_5_3_32 for 2011-2012 AOD, 7_6_7 for 2015,
+10_6_30 for 2016), the CMS Open Data Guide (cms-opendata-guide.web.cern.ch), the annual
+CMS Open Data workshops (2020-2024, with a 2016-data hackathon in 2024),
+`cernopendata-client` for metadata and downloads, the columnar Python stack
+(uproot, awkward, coffea) for NanoAOD, ROOT RDataFrame tutorials df102/df103, and
+`ispy-analyzers` for producing new `.ig` files. The QuarkNet / CMS Masterclass
+documentation (2024) is the only published tutorial on computing invariant masses from
+`.ig` files in iSpy WebGL; `tools/iglib.py` in this folder is a standalone Python reader.
+
+## 5. Bottom line
+
+* iSpy WebGL is a viewer with one physics calculation (lepton invariant mass). Its
+  bundled "database" is 211 certified 2012 collision events, 200 of them unselected,
+  plus the 11 H -> 4l candidates that the CERN Open Data H -> 4l example found.
+* Those 11 events reproduce the published topology and mass (mean 125.4 GeV) and match
+  the open-data re-analysis bin for bin; the Z and J/psi show up where they should.
+* Nothing else in the repository constitutes a statistical test of a published result.
+  Verifying anything beyond this (H -> gamma gamma, Bs -> mu mu, top, W, exotics) needs
+  the full datasets from opendata.cern.ch and the CMSSW or NanoAOD tool-chain listed above.
