@@ -55,7 +55,8 @@ def good(ev, pre, pt_min, eta_max, iso):
     pt, eta = ev[f'{pre}_pt'], ev[f'{pre}_eta']
     dxy, dz = ev[f'{pre}_dxy'], ev[f'{pre}_dz']
     sip = np.sqrt(dxy ** 2 + dz ** 2) / np.sqrt(ev[f'{pre}_dxyErr'] ** 2 + ev[f'{pre}_dzErr'] ** 2)
-    return ((pt > pt_min) & (abs(eta) < eta_max) & (ev[f'{pre}_{iso}'] < 0.40)
+    # abs() on the isolation as in skim.cxx: the files store -999 where no value exists
+    return ((pt > pt_min) & (abs(eta) < eta_max) & (abs(ev[f'{pre}_{iso}']) < 0.40)
             & (abs(dxy) < 0.5) & (abs(dz) < 1.0) & (sip < 4))
 
 

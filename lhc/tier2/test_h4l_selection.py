@@ -52,6 +52,9 @@ m6b, _ = select(build(soft, []), '4mu'); assert len(m6b) == 1, '4mu has no 20/10
 # 6. isolation cut: iso 0.6 fails
 ev = build(mu, []); ev['Muon_pfRelIso04_all'] = ak.Array([[0.6, 0.05, 0.05, 0.05]])
 m7, _ = select(ev, '4mu'); assert len(m7) == 0
+# 6b. an isolation value of -999 (missing in NanoAOD) must fail, as abs(iso) < 0.4 in skim.cxx
+ev = build(mu, []); ev['Muon_pfRelIso04_all'] = ak.Array([[-999.0, 0.05, 0.05, 0.05]])
+m7b, _ = select(ev, '4mu'); assert len(m7b) == 0
 # 7. mass value sanity: with all leptons massless-ish and Z's at rest, m4l should be sqrt((91.19+30)^2 - |p|^2) with p=0 -> 121.19
 assert abs(m[0] - (PDG['Z'] + 30.0)) < 0.2, m[0]
-print('all 8 selection checks passed; m4l of the clean event = %.2f GeV' % m[0])
+print('all 9 selection checks passed; m4l of the clean event = %.2f GeV' % m[0])
