@@ -18,8 +18,9 @@ for f in "${FILES[@]}"; do
       have=$(stat -c %s "$part" 2>/dev/null || echo 0)
       [ "$have" -ge "$want" ] && return 0
       tries=$((tries+1)); [ "$tries" -gt 40 ] && { echo "giving up on $part"; return 1; }
-      curl -sS --retry 3 --retry-all-errors --retry-delay 3 -r "$((a+have))-$e" -o "$part.tmp" "$BASE/$f" \
-        && cat "$part.tmp" >> "$part"; rm -f "$part.tmp"; sleep 2
+      # stream straight into the part file so a reset keeps everything received so far
+      curl -sS --retry 3 --retry-all-errors --retry-delay 3 -r "$((a+have))-$e" "$BASE/$f" >> "$part" || true
+      sleep 2
     done
   }
   for i in $(seq 0 $((N-1))); do
