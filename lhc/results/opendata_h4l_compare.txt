@@ -1,0 +1,5 @@
+4mu    ig file: {(121, 124): 2, (124, 127): 1}   open-data histogram: {(121, 124): 2, (124, 127): 1}   -> MATCH
+2mu2e  ig file: {(121, 124): 1, (124, 127): 3, (127, 130): 2}   open-data histogram: {(121, 124): 1, (124, 127): 3, (127, 130): 2}   -> MATCH
+4e     ig file: {(124, 127): 2}   open-data histogram: {(124, 127): 2}   -> MATCH
+
+all channels match bin-by-bin: True

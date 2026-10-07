@@ -1,0 +1,268 @@
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/BJetPlusX_Run2012C_0.ig
+run 198230 ls 1380 evt  1096322394 2012-Jul-04 16:35:03 | mu=0 e=0 g=1 pfjet=52 MET=42.7
+run 198230 ls 1380 evt  1096322990 2012-Jul-04 16:35:03 | mu=0 e=2 g=2 pfjet=53 MET=10.5 m(ee)=33.90[q=+1-1] m(gg)=68.23
+run 198230 ls 1380 evt  1096324132 2012-Jul-04 16:35:03 | mu=1 e=0 g=2 pfjet=41 MET=32.1 m(gg)=35.96
+run 198230 ls 1380 evt  1096331606 2012-Jul-04 16:35:03 | mu=0 e=1 g=0 pfjet=29 MET=3.7
+run 198230 ls 1380 evt  1096334507 2012-Jul-04 16:35:03 | mu=0 e=0 g=1 pfjet=39 MET=15.4
+run 198230 ls 1380 evt  1096341286 2012-Jul-04 16:35:04 | mu=0 e=1 g=0 pfjet=41 MET=12.3
+run 198230 ls 1380 evt  1096348642 2012-Jul-04 16:35:04 | mu=0 e=3 g=2 pfjet=49 MET=42.9 m(ee)=10.37[q=+1+1] m(gg)=61.40
+run 198230 ls 1380 evt  1096349020 2012-Jul-04 16:35:04 | mu=0 e=1 g=1 pfjet=44 MET=13.6
+run 198230 ls 1380 evt  1096352658 2012-Jul-04 16:35:04 | mu=0 e=0 g=2 pfjet=38 MET=9.3 m(gg)=97.32
+run 198230 ls 1380 evt  1096363822 2012-Jul-04 16:35:05 | mu=0 e=4 g=6 pfjet=35 MET=21.3 m(ee)=28.32[q=-1+1] m(gg)=100.50
+run 198230 ls 1380 evt  1096383998 2012-Jul-04 16:35:05 | mu=1 e=0 g=0 pfjet=40 MET=35.0
+run 198230 ls 1380 evt  1096386218 2012-Jul-04 16:35:05 | mu=0 e=0 g=0 pfjet=32 MET=34.3
+run 198230 ls 1380 evt  1096387771 2012-Jul-04 16:35:06 | mu=0 e=0 g=1 pfjet=49 MET=46.8
+run 198230 ls 1380 evt  1096391814 2012-Jul-04 16:35:06 | mu=0 e=1 g=2 pfjet=49 MET=8.8 m(gg)=37.38
+run 198230 ls 1380 evt  1096394829 2012-Jul-04 16:35:06 | mu=2 e=1 g=1 pfjet=35 MET=21.5 m(mumu)=10.96[q=-1+1]
+run 198230 ls 1380 evt  1096407534 2012-Jul-04 16:35:06 | mu=0 e=1 g=3 pfjet=38 MET=29.5 m(gg)=49.97
+run 198230 ls 1380 evt  1096409638 2012-Jul-04 16:35:06 | mu=1 e=1 g=2 pfjet=41 MET=22.7 m(gg)=306.60
+run 198230 ls 1380 evt  1096411390 2012-Jul-04 16:35:07 | mu=0 e=0 g=1 pfjet=23 MET=14.5
+run 198230 ls 1380 evt  1096416174 2012-Jul-04 16:35:07 | mu=1 e=1 g=0 pfjet=49 MET=37.1
+run 198230 ls 1380 evt  1096423634 2012-Jul-04 16:35:07 | mu=0 e=0 g=0 pfjet=48 MET=31.0
+run 198230 ls 1380 evt  1096438462 2012-Jul-04 16:35:08 | mu=0 e=0 g=3 pfjet=33 MET=30.8 m(gg)=50.94
+run 198230 ls 1380 evt  1096441666 2012-Jul-04 16:35:08 | mu=0 e=1 g=1 pfjet=38 MET=38.8
+run 198230 ls 1380 evt  1096445706 2012-Jul-04 16:35:08 | mu=1 e=0 g=1 pfjet=51 MET=27.9
+run 198230 ls 1380 evt  1096452132 2012-Jul-04 16:35:08 | mu=0 e=0 g=2 pfjet=42 MET=30.9 m(gg)=1.66
+run 198230 ls 1380 evt  1096455614 2012-Jul-04 16:35:08 | mu=0 e=1 g=1 pfjet=39 MET=17.1
+25 events, runs: [198230]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/DoubleElectron_Run2012C_0.ig
+run 202016 ls  562 evt   616792473 2012-Aug-31 04:05:17 | mu=0 e=1 g=1 pfjet=43 MET=11.6
+run 202016 ls  562 evt   616817033 2012-Aug-31 04:05:18 | mu=0 e=2 g=2 pfjet=43 MET=19.6 m(ee)=2.44[q=+1-1] m(gg)=3.95
+run 202016 ls  562 evt   616825721 2012-Aug-31 04:05:18 | mu=0 e=1 g=2 pfjet=51 MET=9.9 m(gg)=63.39
+run 202016 ls  562 evt   616891729 2012-Aug-31 04:05:19 | mu=0 e=1 g=1 pfjet=44 MET=34.3
+run 202016 ls  562 evt   616941488 2012-Aug-31 04:05:21 | mu=1 e=1 g=1 pfjet=45 MET=18.9
+run 202016 ls  562 evt   616957241 2012-Aug-31 04:05:21 | mu=0 e=1 g=1 pfjet=30 MET=19.5
+run 202016 ls  562 evt   616963273 2012-Aug-31 04:05:21 | mu=0 e=2 g=2 pfjet=46 MET=17.5 m(ee)=90.79[q=-1+1] m(gg)=91.70
+run 202016 ls  562 evt   616969809 2012-Aug-31 04:05:21 | mu=1 e=3 g=1 pfjet=54 MET=34.8 m(ee)=56.48[q=-1+1]
+run 202016 ls  562 evt   617034552 2012-Aug-31 04:05:23 | mu=0 e=2 g=2 pfjet=43 MET=19.1 m(ee)=48.59[q=-1+1] m(gg)=53.29
+run 202016 ls  562 evt   617059745 2012-Aug-31 04:05:23 | mu=0 e=2 g=2 pfjet=38 MET=14.0 m(ee)=92.38[q=-1+1] m(gg)=91.34
+run 202016 ls  562 evt   617062001 2012-Aug-31 04:05:23 | mu=0 e=0 g=1 pfjet=49 MET=8.5
+run 202016 ls  562 evt   617095049 2012-Aug-31 04:05:24 | mu=0 e=2 g=2 pfjet=32 MET=11.7 m(ee)=93.25[q=+1-1] m(gg)=92.16
+run 202016 ls  562 evt   617214105 2012-Aug-31 04:05:27 | mu=0 e=1 g=1 pfjet=47 MET=15.6
+run 202016 ls  562 evt   617219441 2012-Aug-31 04:05:27 | mu=0 e=2 g=2 pfjet=54 MET=8.8 m(ee)=37.10[q=+1+1] m(gg)=54.42
+run 202016 ls  562 evt   617229881 2012-Aug-31 04:05:27 | mu=0 e=3 g=2 pfjet=42 MET=18.3 m(ee)=42.61[q=-1-1] m(gg)=31.56
+run 202016 ls  562 evt   617247505 2012-Aug-31 04:05:28 | mu=0 e=0 g=1 pfjet=50 MET=30.8
+run 202016 ls  562 evt   617272105 2012-Aug-31 04:05:28 | mu=1 e=1 g=1 pfjet=40 MET=7.2
+run 202016 ls  562 evt   617312057 2012-Aug-31 04:05:29 | mu=0 e=2 g=2 pfjet=51 MET=40.1 m(ee)=63.37[q=-1-1] m(gg)=61.50
+run 202016 ls  562 evt   617369121 2012-Aug-31 04:05:31 | mu=0 e=1 g=1 pfjet=38 MET=45.1
+run 202016 ls  562 evt   617479137 2012-Aug-31 04:05:33 | mu=0 e=3 g=1 pfjet=49 MET=28.2 m(ee)=2.36[q=+1-1]
+run 202016 ls  562 evt   617548657 2012-Aug-31 04:05:35 | mu=0 e=0 g=1 pfjet=49 MET=5.5
+run 202016 ls  562 evt   617587409 2012-Aug-31 04:05:36 | mu=0 e=0 g=1 pfjet=28 MET=4.7
+run 202016 ls  562 evt   617627441 2012-Aug-31 04:05:37 | mu=0 e=1 g=3 pfjet=51 MET=20.6 m(gg)=62.68
+run 202016 ls  562 evt   617687001 2012-Aug-31 04:05:38 | mu=0 e=3 g=2 pfjet=16 MET=2.3 m(ee)=86.54[q=-1+1] m(gg)=85.54
+run 202016 ls  562 evt   617699401 2012-Aug-31 04:05:38 | mu=0 e=1 g=3 pfjet=48 MET=41.3 m(gg)=65.16
+25 events, runs: [202016]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/DoubleMuParked_Run2012C_0.ig
+run 199318 ls  114 evt   119516329 2012-Jul-20 05:06:01 | mu=2 e=0 g=3 pfjet=54 MET=1.6 m(mumu)=14.92[q=-1+1] m(gg)=107.63
+run 199318 ls  114 evt   119560793 2012-Jul-20 05:06:02 | mu=2 e=1 g=0 pfjet=57 MET=53.7 m(mumu)=5.62[q=+1+1]
+run 199318 ls  114 evt   119639913 2012-Jul-20 05:06:03 | mu=2 e=1 g=2 pfjet=54 MET=21.0 m(mumu)=1.34[q=-1+1] m(gg)=44.34
+run 199318 ls  114 evt   119646793 2012-Jul-20 05:06:03 | mu=2 e=0 g=0 pfjet=62 MET=17.5 m(mumu)=16.44[q=-1+1]
+run 199318 ls  114 evt   119659321 2012-Jul-20 05:06:03 | mu=2 e=0 g=0 pfjet=52 MET=30.5 m(mumu)=2.54[q=-1+1]
+run 199318 ls  114 evt   119671113 2012-Jul-20 05:06:03 | mu=2 e=0 g=0 pfjet=58 MET=11.8 m(mumu)=34.37[q=-1+1]
+run 199318 ls  114 evt   119672497 2012-Jul-20 05:06:03 | mu=1 e=0 g=1 pfjet=50 MET=11.9
+run 199318 ls  114 evt   119679017 2012-Jul-20 05:06:03 | mu=2 e=1 g=0 pfjet=54 MET=19.8 m(mumu)=93.93[q=+1-1]
+run 199318 ls  114 evt   119679993 2012-Jul-20 05:06:03 | mu=2 e=0 g=0 pfjet=55 MET=16.4 m(mumu)=2.68[q=-1+1]
+run 199318 ls  114 evt   119696345 2012-Jul-20 05:06:03 | mu=3 e=1 g=0 pfjet=58 MET=33.9 m(mumu)=10.67[q=-1-1]
+run 199318 ls  114 evt   119789737 2012-Jul-20 05:06:05 | mu=2 e=2 g=1 pfjet=55 MET=16.0 m(mumu)=26.04[q=+1-1] m(ee)=0.09[q=-1+1]
+run 199318 ls  114 evt   119825913 2012-Jul-20 05:06:05 | mu=3 e=0 g=0 pfjet=57 MET=17.2 m(mumu)=19.22[q=-1-1]
+run 199318 ls  114 evt   119833617 2012-Jul-20 05:06:05 | mu=2 e=0 g=0 pfjet=55 MET=10.6 m(mumu)=3.08[q=-1+1]
+run 199318 ls  114 evt   119894081 2012-Jul-20 05:06:06 | mu=1 e=0 g=0 pfjet=51 MET=6.5
+run 199318 ls  114 evt   119918625 2012-Jul-20 05:06:06 | mu=1 e=0 g=0 pfjet=52 MET=23.4
+run 199318 ls  114 evt   119978633 2012-Jul-20 05:06:07 | mu=2 e=0 g=1 pfjet=52 MET=6.6 m(mumu)=1.80[q=-1-1]
+run 199318 ls  114 evt   119986753 2012-Jul-20 05:06:07 | mu=2 e=1 g=3 pfjet=49 MET=14.4 m(mumu)=38.02[q=-1+1] m(gg)=109.94
+run 199318 ls  114 evt   120059985 2012-Jul-20 05:06:08 | mu=2 e=0 g=0 pfjet=55 MET=16.3 m(mumu)=16.35[q=-1+1]
+run 199318 ls  114 evt   120111969 2012-Jul-20 05:06:09 | mu=2 e=0 g=0 pfjet=52 MET=9.9 m(mumu)=88.11[q=+1-1]
+run 199318 ls  114 evt   120114689 2012-Jul-20 05:06:09 | mu=2 e=0 g=0 pfjet=56 MET=10.6 m(mumu)=0.85[q=+1-1]
+run 199318 ls  114 evt   120122273 2012-Jul-20 05:06:09 | mu=2 e=0 g=0 pfjet=58 MET=34.9 m(mumu)=4.99[q=+1+1]
+run 199318 ls  114 evt   120141593 2012-Jul-20 05:06:09 | mu=2 e=0 g=0 pfjet=56 MET=8.7 m(mumu)=8.25[q=-1+1]
+run 199318 ls  114 evt   120190849 2012-Jul-20 05:06:10 | mu=2 e=0 g=0 pfjet=56 MET=12.2 m(mumu)=30.49[q=-1+1]
+run 199318 ls  114 evt   120221473 2012-Jul-20 05:06:10 | mu=2 e=0 g=1 pfjet=56 MET=23.7 m(mumu)=13.70[q=-1+1]
+run 199318 ls  114 evt   120234945 2012-Jul-20 05:06:10 | mu=3 e=1 g=0 pfjet=52 MET=28.2 m(mumu)=11.98[q=+1+1]
+25 events, runs: [199318]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/DoublePhoton_Run2012B_0.ig
+run 194115 ls  702 evt   651906625 2012-May-14 05:37:30 | mu=0 e=0 g=2 pfjet=34 MET=6.3 m(gg)=72.33
+run 194115 ls  702 evt   651933278 2012-May-14 05:37:31 | mu=0 e=0 g=2 pfjet=52 MET=0.7 m(gg)=101.06
+run 194115 ls  702 evt   651938592 2012-May-14 05:37:31 | mu=0 e=1 g=2 pfjet=51 MET=15.5 m(gg)=114.24
+run 194115 ls  702 evt   651957713 2012-May-14 05:37:32 | mu=0 e=0 g=2 pfjet=44 MET=18.1 m(gg)=65.55
+run 194115 ls  702 evt   651977709 2012-May-14 05:37:32 | mu=0 e=0 g=2 pfjet=51 MET=55.8 m(gg)=80.55
+run 194115 ls  702 evt   651987545 2012-May-14 05:37:33 | mu=0 e=1 g=3 pfjet=50 MET=34.4 m(gg)=103.09
+run 194115 ls  702 evt   651992907 2012-May-14 05:37:33 | mu=0 e=0 g=2 pfjet=50 MET=10.2 m(gg)=65.47
+run 194115 ls  702 evt   652001849 2012-May-14 05:37:33 | mu=1 e=1 g=5 pfjet=48 MET=17.9 m(gg)=121.08
+run 194115 ls  702 evt   652038193 2012-May-14 05:37:34 | mu=0 e=0 g=2 pfjet=25 MET=16.2 m(gg)=103.99
+run 194115 ls  702 evt   652058695 2012-May-14 05:37:35 | mu=0 e=1 g=2 pfjet=47 MET=12.9 m(gg)=118.86
+run 194115 ls  702 evt   652099539 2012-May-14 05:37:36 | mu=0 e=1 g=3 pfjet=36 MET=14.0 m(gg)=93.60
+run 194115 ls  702 evt   652163381 2012-May-14 05:37:38 | mu=1 e=0 g=2 pfjet=47 MET=16.8 m(gg)=70.36
+run 194115 ls  702 evt   652184289 2012-May-14 05:37:38 | mu=0 e=1 g=2 pfjet=44 MET=22.9 m(gg)=65.09
+run 194115 ls  702 evt   652238569 2012-May-14 05:37:40 | mu=0 e=1 g=2 pfjet=42 MET=8.3 m(gg)=95.93
+run 194115 ls  702 evt   652357534 2012-May-14 05:37:43 | mu=0 e=0 g=2 pfjet=43 MET=33.9 m(gg)=153.34
+run 194115 ls  702 evt   652423091 2012-May-14 05:37:45 | mu=0 e=1 g=2 pfjet=51 MET=19.2 m(gg)=96.13
+run 194115 ls  702 evt   652427387 2012-May-14 05:37:45 | mu=0 e=2 g=4 pfjet=47 MET=27.5 m(ee)=89.23[q=+1+1] m(gg)=41.47
+run 194115 ls  702 evt   652450361 2012-May-14 05:37:46 | mu=0 e=0 g=2 pfjet=34 MET=15.6 m(gg)=63.64
+run 194115 ls  702 evt   652524425 2012-May-14 05:37:48 | mu=0 e=1 g=2 pfjet=49 MET=17.3 m(gg)=91.88
+run 194115 ls  702 evt   652538562 2012-May-14 05:37:48 | mu=0 e=2 g=2 pfjet=48 MET=18.6 m(ee)=87.10[q=-1+1] m(gg)=85.81
+run 194115 ls  702 evt   652595559 2012-May-14 05:37:50 | mu=0 e=2 g=2 pfjet=39 MET=8.7 m(ee)=150.55[q=+1-1] m(gg)=150.95
+run 194115 ls  702 evt   652616753 2012-May-14 05:37:50 | mu=0 e=0 g=2 pfjet=49 MET=16.3 m(gg)=66.08
+run 194115 ls  702 evt   652620608 2012-May-14 05:37:51 | mu=0 e=0 g=2 pfjet=45 MET=14.8 m(gg)=99.12
+run 194115 ls  702 evt   652644506 2012-May-14 05:37:51 | mu=0 e=1 g=2 pfjet=37 MET=3.4 m(gg)=95.36
+run 194115 ls  702 evt   652655004 2012-May-14 05:37:51 | mu=0 e=1 g=2 pfjet=45 MET=16.1 m(gg)=74.25
+25 events, runs: [194115]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/Hto4l_120-130GeV.ig
+run 195099 ls  115 evt   137440354 2012-May-27 23:35:47 | mu=2 e=2 g=2 pfjet=52 MET=19.6 m(mumu)=75.75[q=-1+1] m(ee)=29.19[q=+1-1] m(gg)=29.21
+run 198213 ls   31 evt    27000461 2012-Jul-04 03:19:28 | mu=2 e=2 g=1 pfjet=39 MET=5.2 m(mumu)=67.74[q=+1-1] m(ee)=39.00[q=+1-1]
+run 199319 ls  970 evt  1203594102 2012-Jul-20 11:38:00 | mu=4 e=2 g=0 pfjet=44 MET=20.5 m(mumu)=73.83[q=-1-1] m(ee)=7.55[q=-1+1]
+run 200091 ls 1481 evt  1605749984 2012-Aug-02 06:43:52 | mu=2 e=2 g=1 pfjet=32 MET=5.1 m(mumu)=92.22[q=-1+1] m(ee)=34.32[q=-1+1]
+run 200466 ls  226 evt   153791279 2012-Aug-07 19:59:09 | mu=2 e=2 g=3 pfjet=52 MET=7.9 m(mumu)=90.32[q=-1+1] m(ee)=34.84[q=+1-1] m(gg)=34.89
+run 201174 ls  335 evt   216745941 2012-Aug-18 04:41:44 | mu=2 e=2 g=2 pfjet=17 MET=15.7 m(mumu)=86.89[q=-1+1] m(ee)=19.93[q=-1+1] m(gg)=18.39
+run 201191 ls 1006 evt  1357605031 2012-Aug-18 14:12:31 | mu=2 e=4 g=4 pfjet=49 MET=95.9 m(mumu)=14.51[q=+1-1] m(ee)=80.84[q=-1+1] m(gg)=60.48
+run 201707 ls  503 evt   635670564 2012-Aug-26 11:42:24 | mu=4 e=0 g=0 pfjet=48 MET=39.9 m(mumu)=88.42[q=+1-1]
+run 201707 ls  656 evt   805047482 2012-Aug-26 12:41:56 | mu=0 e=4 g=4 pfjet=42 MET=9.8 m(ee)=57.24[q=-1-1] m(gg)=71.61
+run 202178 ls 1286 evt  1430970868 2012-Sep-04 02:23:56 | mu=4 e=0 g=0 pfjet=49 MET=5.1 m(mumu)=49.18[q=+1-1]
+run 202299 ls  304 evt   421267699 2012-Sep-06 10:45:27 | mu=0 e=4 g=4 pfjet=52 MET=26.2 m(ee)=19.52[q=-1+1] m(gg)=41.91
+11 events, runs: [195099, 198213, 199319, 200091, 200466, 201174, 201191, 201707, 202178, 202299]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/JetHT_Run2012C_0.ig
+run 200600 ls  125 evt   200472330 2012-Aug-09 22:43:47 | mu=0 e=0 g=1 pfjet=56 MET=15.5
+run 200600 ls  125 evt   200483690 2012-Aug-09 22:43:48 | mu=0 e=0 g=1 pfjet=53 MET=48.7
+run 200600 ls  125 evt   200621946 2012-Aug-09 22:43:50 | mu=0 e=3 g=3 pfjet=37 MET=18.5 m(ee)=106.53[q=+1+1] m(gg)=63.64
+run 200600 ls  125 evt   200761162 2012-Aug-09 22:43:52 | mu=0 e=0 g=0 pfjet=57 MET=5.9
+run 200600 ls  125 evt   200766002 2012-Aug-09 22:43:52 | mu=0 e=2 g=0 pfjet=55 MET=13.9 m(ee)=8.06[q=-1-1]
+run 200600 ls  125 evt   200798394 2012-Aug-09 22:43:52 | mu=0 e=1 g=1 pfjet=56 MET=33.5
+run 200600 ls  125 evt   200814330 2012-Aug-09 22:43:53 | mu=0 e=1 g=3 pfjet=58 MET=47.5 m(gg)=552.81
+run 200600 ls  125 evt   200821634 2012-Aug-09 22:43:53 | mu=0 e=1 g=3 pfjet=54 MET=20.1 m(gg)=198.63
+run 200600 ls  125 evt   200887394 2012-Aug-09 22:43:54 | mu=0 e=2 g=3 pfjet=57 MET=9.1 m(ee)=10.07[q=+1-1] m(gg)=147.38
+run 200600 ls  125 evt   200903346 2012-Aug-09 22:43:54 | mu=0 e=0 g=1 pfjet=48 MET=38.3
+run 200600 ls  125 evt   201058426 2012-Aug-09 22:43:56 | mu=1 e=1 g=1 pfjet=57 MET=41.6
+run 200600 ls  125 evt   201144370 2012-Aug-09 22:43:58 | mu=1 e=1 g=2 pfjet=56 MET=25.2 m(gg)=30.60
+run 200600 ls  125 evt   201150938 2012-Aug-09 22:43:58 | mu=1 e=0 g=2 pfjet=62 MET=125.2 m(gg)=113.71
+run 200600 ls  125 evt   201197346 2012-Aug-09 22:43:59 | mu=0 e=0 g=4 pfjet=57 MET=34.9 m(gg)=316.92
+run 200600 ls  125 evt   201269770 2012-Aug-09 22:44:00 | mu=2 e=3 g=1 pfjet=59 MET=56.2 m(mumu)=14.10[q=-1+1] m(ee)=8.71[q=-1+1]
+run 200600 ls  125 evt   201331530 2012-Aug-09 22:44:01 | mu=0 e=0 g=2 pfjet=57 MET=22.2 m(gg)=167.23
+run 200600 ls  125 evt   201464114 2012-Aug-09 22:44:03 | mu=1 e=1 g=1 pfjet=46 MET=33.3
+run 200600 ls  125 evt   201466418 2012-Aug-09 22:44:03 | mu=0 e=0 g=1 pfjet=56 MET=21.2
+run 200600 ls  125 evt   201585786 2012-Aug-09 22:44:05 | mu=1 e=0 g=0 pfjet=51 MET=112.0
+run 200600 ls  125 evt   201619922 2012-Aug-09 22:44:05 | mu=1 e=1 g=2 pfjet=55 MET=75.9 m(gg)=354.82
+run 200600 ls  125 evt   201633562 2012-Aug-09 22:44:05 | mu=0 e=1 g=2 pfjet=53 MET=58.4 m(gg)=1.64
+run 200600 ls  125 evt   201685234 2012-Aug-09 22:44:06 | mu=1 e=0 g=1 pfjet=56 MET=18.6
+run 200600 ls  125 evt   201723338 2012-Aug-09 22:44:07 | mu=0 e=0 g=2 pfjet=55 MET=27.7 m(gg)=18.30
+run 200600 ls  125 evt   201733666 2012-Aug-09 22:44:07 | mu=0 e=0 g=0 pfjet=47 MET=22.2
+run 200600 ls  125 evt   201781434 2012-Aug-09 22:44:08 | mu=0 e=0 g=1 pfjet=40 MET=69.8
+25 events, runs: [200600]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/MET_Run2012C_0.ig
+run 202209 ls   14 evt    20657260 2012-Sep-04 12:43:00 | mu=0 e=0 g=2 pfjet=51 MET=26.7 m(gg)=269.80
+run 202209 ls   14 evt    20831924 2012-Sep-04 12:43:02 | mu=0 e=0 g=1 pfjet=57 MET=76.9
+run 202209 ls   14 evt    20896956 2012-Sep-04 12:43:03 | mu=0 e=2 g=1 pfjet=54 MET=5.7 m(ee)=5.60[q=-1+1]
+run 202209 ls   14 evt    20938516 2012-Sep-04 12:43:04 | mu=0 e=1 g=1 pfjet=50 MET=41.1
+run 202209 ls   14 evt    20966623 2012-Sep-04 12:43:04 | mu=0 e=0 g=0 pfjet=53 MET=47.0
+run 202209 ls   14 evt    21071239 2012-Sep-04 12:43:06 | mu=0 e=0 g=0 pfjet=58 MET=44.6
+run 202209 ls   14 evt    21124055 2012-Sep-04 12:43:06 | mu=0 e=0 g=1 pfjet=56 MET=55.4
+run 202209 ls   14 evt    21204247 2012-Sep-04 12:43:08 | mu=0 e=0 g=0 pfjet=57 MET=1.8
+run 202209 ls   14 evt    21210375 2012-Sep-04 12:43:08 | mu=1 e=0 g=1 pfjet=49 MET=77.5
+run 202209 ls   14 evt    21233479 2012-Sep-04 12:43:08 | mu=0 e=0 g=0 pfjet=56 MET=83.4
+run 202209 ls   14 evt    21308967 2012-Sep-04 12:43:09 | mu=1 e=0 g=0 pfjet=54 MET=12.6
+run 202209 ls   14 evt    21369111 2012-Sep-04 12:43:10 | mu=0 e=1 g=0 pfjet=53 MET=24.0
+run 202209 ls   14 evt    21396447 2012-Sep-04 12:43:10 | mu=1 e=3 g=3 pfjet=53 MET=10.5 m(ee)=31.59[q=+1-1] m(gg)=203.20
+run 202209 ls   14 evt    21396711 2012-Sep-04 12:43:10 | mu=0 e=0 g=0 pfjet=56 MET=33.7
+run 202209 ls   14 evt    21428671 2012-Sep-04 12:43:11 | mu=0 e=0 g=0 pfjet=50 MET=18.8
+run 202209 ls   14 evt    21437999 2012-Sep-04 12:43:11 | mu=0 e=2 g=1 pfjet=56 MET=58.8 m(ee)=75.50[q=+1-1]
+run 202209 ls   14 evt    21496407 2012-Sep-04 12:43:12 | mu=1 e=0 g=1 pfjet=53 MET=27.1
+run 202209 ls   14 evt    21594383 2012-Sep-04 12:43:13 | mu=0 e=0 g=0 pfjet=55 MET=29.4
+run 202209 ls   14 evt    21707647 2012-Sep-04 12:43:15 | mu=0 e=0 g=0 pfjet=51 MET=8.5
+run 202209 ls   14 evt    21727495 2012-Sep-04 12:43:15 | mu=0 e=0 g=0 pfjet=59 MET=4.7
+run 202209 ls   14 evt    21811679 2012-Sep-04 12:43:16 | mu=1 e=1 g=1 pfjet=56 MET=104.1
+run 202209 ls   14 evt    21945919 2012-Sep-04 12:43:18 | mu=1 e=0 g=0 pfjet=58 MET=123.7
+run 202209 ls   14 evt    22021183 2012-Sep-04 12:43:19 | mu=0 e=0 g=0 pfjet=59 MET=24.0
+run 202209 ls   14 evt    22066975 2012-Sep-04 12:43:20 | mu=0 e=0 g=0 pfjet=6 MET=8.7
+run 202209 ls   14 evt    22109111 2012-Sep-04 12:43:21 | mu=0 e=1 g=0 pfjet=53 MET=39.2
+25 events, runs: [202209]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/MinimumBias_Run2012C_0.ig
+run 198230 ls  674 evt   643920242 2012-Jul-04 12:00:45 | mu=0 e=0 g=0 pfjet=38 MET=9.5
+run 198230 ls  674 evt   643948414 2012-Jul-04 12:00:46 | mu=0 e=0 g=1 pfjet=50 MET=24.4
+run 198230 ls  674 evt   643969838 2012-Jul-04 12:00:47 | mu=0 e=0 g=0 pfjet=25 MET=4.2
+run 198230 ls  674 evt   643977702 2012-Jul-04 12:00:47 | mu=0 e=0 g=1 pfjet=42 MET=13.4
+run 198230 ls  674 evt   643984022 2012-Jul-04 12:00:47 | mu=0 e=0 g=0 pfjet=22 MET=4.8
+run 198230 ls  674 evt   643993878 2012-Jul-04 12:00:47 | mu=1 e=0 g=0 pfjet=49 MET=39.3
+run 198230 ls  674 evt   644007286 2012-Jul-04 12:00:48 | mu=0 e=0 g=0 pfjet=46 MET=22.0
+run 198230 ls  674 evt   644016810 2012-Jul-04 12:00:48 | mu=0 e=0 g=0 pfjet=47 MET=23.9
+run 198230 ls  674 evt   644075210 2012-Jul-04 12:00:50 | mu=0 e=0 g=0 pfjet=52 MET=5.5
+run 198230 ls  674 evt   644094650 2012-Jul-04 12:00:51 | mu=0 e=0 g=0 pfjet=45 MET=21.8
+run 198230 ls  674 evt   644123290 2012-Jul-04 12:00:51 | mu=0 e=0 g=0 pfjet=51 MET=16.3
+run 198230 ls  674 evt   644166322 2012-Jul-04 12:00:53 | mu=0 e=0 g=0 pfjet=42 MET=12.5
+run 198230 ls  674 evt   644190418 2012-Jul-04 12:00:53 | mu=1 e=0 g=0 pfjet=45 MET=7.5
+run 198230 ls  674 evt   644202002 2012-Jul-04 12:00:54 | mu=0 e=0 g=0 pfjet=51 MET=24.1
+run 198230 ls  674 evt   644235898 2012-Jul-04 12:00:55 | mu=1 e=0 g=0 pfjet=48 MET=7.4
+run 198230 ls  674 evt   644257634 2012-Jul-04 12:00:56 | mu=0 e=0 g=0 pfjet=38 MET=18.7
+run 198230 ls  674 evt   644344962 2012-Jul-04 12:00:58 | mu=0 e=0 g=0 pfjet=45 MET=9.8
+run 198230 ls  674 evt   644375746 2012-Jul-04 12:00:59 | mu=0 e=0 g=0 pfjet=5 MET=1.4
+run 198230 ls  674 evt   644560618 2012-Jul-04 12:01:05 | mu=0 e=0 g=0 pfjet=46 MET=13.4
+run 198230 ls  674 evt   644570770 2012-Jul-04 12:01:05 | mu=1 e=0 g=0 pfjet=50 MET=19.0
+run 198230 ls  674 evt   644595186 2012-Jul-04 12:01:06 | mu=0 e=0 g=0 pfjet=3 MET=4.1
+run 198230 ls  674 evt   644615122 2012-Jul-04 12:01:06 | mu=0 e=0 g=0 pfjet=47 MET=23.9
+run 198230 ls  674 evt   644644154 2012-Jul-04 12:01:07 | mu=0 e=0 g=0 pfjet=0 MET=1.9
+run 198230 ls  674 evt   644654186 2012-Jul-04 12:01:08 | mu=1 e=0 g=0 pfjet=42 MET=8.3
+run 198230 ls  674 evt   644670642 2012-Jul-04 12:01:08 | mu=0 e=0 g=0 pfjet=21 MET=7.0
+25 events, runs: [198230]
+
+##### /tmp/claude-0/-home-user-Data/2bf43dac-a493-5317-98d5-523e3c2a3dcd/scratchpad/ispy/ispy-webgl/data/TauParked_Run2012C_0.ig
+run 198272 ls  297 evt   272621358 2012-Jul-05 06:47:14 | mu=0 e=0 g=3 pfjet=44 MET=22.0 m(gg)=90.91
+run 198272 ls  297 evt   272622726 2012-Jul-05 06:47:14 | mu=0 e=0 g=0 pfjet=43 MET=31.6
+run 198272 ls  297 evt   272696318 2012-Jul-05 06:47:16 | mu=0 e=1 g=3 pfjet=49 MET=18.6 m(gg)=141.51
+run 198272 ls  297 evt   272698342 2012-Jul-05 06:47:16 | mu=0 e=0 g=0 pfjet=36 MET=6.9
+run 198272 ls  297 evt   272716662 2012-Jul-05 06:47:17 | mu=0 e=0 g=2 pfjet=43 MET=17.5 m(gg)=1.52
+run 198272 ls  297 evt   272720518 2012-Jul-05 06:47:17 | mu=0 e=1 g=1 pfjet=51 MET=40.9
+run 198272 ls  297 evt   272735518 2012-Jul-05 06:47:17 | mu=0 e=0 g=2 pfjet=38 MET=24.1 m(gg)=1.86
+run 198272 ls  297 evt   272744622 2012-Jul-05 06:47:17 | mu=0 e=0 g=1 pfjet=45 MET=17.6
+run 198272 ls  297 evt   272801966 2012-Jul-05 06:47:19 | mu=0 e=1 g=1 pfjet=42 MET=9.7
+run 198272 ls  297 evt   272823854 2012-Jul-05 06:47:20 | mu=0 e=1 g=0 pfjet=41 MET=31.4
+run 198272 ls  297 evt   272976462 2012-Jul-05 06:47:24 | mu=0 e=0 g=1 pfjet=49 MET=35.8
+run 198272 ls  297 evt   273025542 2012-Jul-05 06:47:25 | mu=0 e=2 g=4 pfjet=47 MET=13.4 m(ee)=114.56[q=+1-1] m(gg)=47.80
+run 198272 ls  297 evt   273070534 2012-Jul-05 06:47:26 | mu=0 e=1 g=1 pfjet=40 MET=17.0
+run 198272 ls  297 evt   273090582 2012-Jul-05 06:47:27 | mu=0 e=0 g=2 pfjet=48 MET=4.2 m(gg)=100.03
+run 198272 ls  297 evt   273100230 2012-Jul-05 06:47:27 | mu=0 e=2 g=1 pfjet=46 MET=13.2 m(ee)=6.15[q=+1-1]
+run 198272 ls  297 evt   273102462 2012-Jul-05 06:47:27 | mu=0 e=1 g=2 pfjet=42 MET=24.4 m(gg)=365.92
+run 198272 ls  297 evt   273136350 2012-Jul-05 06:47:28 | mu=0 e=0 g=2 pfjet=40 MET=12.0 m(gg)=73.17
+run 198272 ls  297 evt   273164062 2012-Jul-05 06:47:29 | mu=0 e=0 g=2 pfjet=41 MET=17.8 m(gg)=69.70
+run 198272 ls  297 evt   273184270 2012-Jul-05 06:47:29 | mu=0 e=1 g=1 pfjet=48 MET=48.2
+run 198272 ls  297 evt   273184742 2012-Jul-05 06:47:29 | mu=0 e=0 g=1 pfjet=46 MET=33.8
+run 198272 ls  297 evt   273201718 2012-Jul-05 06:47:30 | mu=0 e=1 g=2 pfjet=59 MET=21.5 m(gg)=61.89
+run 198272 ls  297 evt   273204798 2012-Jul-05 06:47:30 | mu=0 e=2 g=0 pfjet=52 MET=41.7 m(ee)=22.53[q=-1+1]
+run 198272 ls  297 evt   273206142 2012-Jul-05 06:47:30 | mu=1 e=0 g=1 pfjet=50 MET=44.9
+run 198272 ls  297 evt   273209470 2012-Jul-05 06:47:30 | mu=0 e=0 g=1 pfjet=36 MET=13.1
+run 198272 ls  297 evt   273215406 2012-Jul-05 06:47:30 | mu=0 e=1 g=2 pfjet=50 MET=18.7 m(gg)=90.68
+25 events, runs: [198272]
+
+##### collections present (number of events containing each)
+ 211  EBRecHits_V2
+ 211  EERecHits_V2
+ 211  ESRecHits_V2
+ 112  Errors_V1
+ 211  Event_V2
+ 211  Extras_V1
+ 211  GlobalMuons_V1
+ 211  GsfElectrons_V2
+ 211  HBRecHits_V2
+ 211  HERecHits_V2
+ 211  HFRecHits_V2
+ 211  HORecHits_V2
+ 117  MuonChambers_V1
+ 211  PFJets_V1
+ 211  PFMETs_V1
+ 211  PFTaus_V1
+ 211  Photons_V1
+ 112  Points_V1
+ 211  Products_V1
+ 211  RecHitFractions_V1
+ 211  StandaloneMuons_V2
+ 211  SuperClusters_V1
+ 211  TrackerMuons_V1
+ 211  TrackerMuons_V2
+ 211  Tracks_V3
+ 211  TriggerObjects_V1
+ 211  TriggerPaths_V1
+ 211  Vertices_V1

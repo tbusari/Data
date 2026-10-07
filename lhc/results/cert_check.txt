@@ -1,0 +1,22 @@
+file                              run    LS   n  certified
+BJetPlusX_Run2012C_0.ig        198230  1380  25  yes
+DoubleElectron_Run2012C_0.ig   202016   562  25  yes
+DoubleMuParked_Run2012C_0.ig   199318   114  25  yes
+DoublePhoton_Run2012B_0.ig     194115   702  25  yes
+Hto4l_120-130GeV.ig            195099   115   1  yes
+Hto4l_120-130GeV.ig            198213    31   1  yes
+Hto4l_120-130GeV.ig            199319   970   1  yes
+Hto4l_120-130GeV.ig            200091  1481   1  yes
+Hto4l_120-130GeV.ig            200466   226   1  yes
+Hto4l_120-130GeV.ig            201174   335   1  yes
+Hto4l_120-130GeV.ig            201191  1006   1  yes
+Hto4l_120-130GeV.ig            201707   503   1  yes
+Hto4l_120-130GeV.ig            201707   656   1  yes
+Hto4l_120-130GeV.ig            202178  1286   1  yes
+Hto4l_120-130GeV.ig            202299   304   1  yes
+JetHT_Run2012C_0.ig            200600   125  25  yes
+MET_Run2012C_0.ig              202209    14  25  yes
+MinimumBias_Run2012C_0.ig      198230   674  25  yes
+TauParked_Run2012C_0.ig        198272   297  25  yes
+
+uncertified events: 0
