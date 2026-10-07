@@ -12,11 +12,21 @@ for f in "${FILES[@]}"; do
   sz=$(curl -sS --retry 5 -I "$BASE/$f" | grep -i '^content-length' | tr -dc 0-9)
   echo "$(date +%T) fetching $b ($((sz/1048576)) MiB) in $N parts"
   ch=$((sz/N+1)); pids=()
+  fetch_part() {  # resume until the part has its full size; survives resets the proxy injects
+    local a=$1 e=$2 part=$3 want=$(( $2 - $1 + 1 )) have=0 tries=0
+    while :; do
+      have=$(stat -c %s "$part" 2>/dev/null || echo 0)
+      [ "$have" -ge "$want" ] && return 0
+      tries=$((tries+1)); [ "$tries" -gt 40 ] && { echo "giving up on $part"; return 1; }
+      curl -sS --retry 3 --retry-all-errors --retry-delay 3 -r "$((a+have))-$e" -o "$part.tmp" "$BASE/$f" \
+        && cat "$part.tmp" >> "$part"; rm -f "$part.tmp"; sleep 2
+    done
+  }
   for i in $(seq 0 $((N-1))); do
     a=$((i*ch)); e=$((a+ch-1)); if [ "$e" -ge "$sz" ]; then e=$((sz-1)); fi
-    curl -sS --retry 8 --retry-delay 3 -C - -r "$a-$e" -o "$out.part$i" "$BASE/$f" & pids+=($!)
+    fetch_part "$a" "$e" "$out.part$i" & pids+=($!)
   done
-  for p in "${pids[@]}"; do wait "$p"; done
+  for p in "${pids[@]}"; do wait "$p" || { echo "part failed for $b"; exit 1; }; done
   cat $(for i in $(seq 0 $((N-1))); do echo "$out.part$i"; done) > "$out.tmp"
   got=$(stat -c %s "$out.tmp")
   if [ "$got" -ne "$sz" ]; then echo "SIZE MISMATCH for $b: $got vs $sz"; exit 1; fi
